@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quality Sand Supply - Your Local Sand & Gravel Experts</title>
-
-    <!-- Tailwind CSS -->
+    <title>JV Traders - Sand Supplier Bangalore</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Custom Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sand': '#f4d03f',
+                        'river': '#3498db',
+                        'earth': '#8b4513'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script>
+        function sendWhatsAppToBoth(message) {
+            const phoneNumbers = ['9845208446', '9845208447']; // Add more numbers as needed
+            const baseUrl = 'https://wa.me/';
+            phoneNumbers.forEach(number => {
+                const url = `${baseUrl}${number}?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+            });
+        }
+    </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        .carousel-item {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            opacity: 1;
+        }
+        .carousel-item:not(.active) {
+            opacity: 0;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        /*added filter for Better visibility of logo*/
+        .filt {
+            filter: blur(2.5px) brightness(0.8);
         }
         /* Style for the sticky header to have a background on scroll */
         .header-scrolled {
@@ -24,409 +53,922 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 4px rgba(14, 12, 12, 0.548);
         }
-        /*added filter for Better visibility of logo*/
-        .filt {
-            filter: blur(2.5px) brightness(0.8);
-        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-
+<body class="bg-gray-50">
     <!-- Header & Navigation Bar -->
-    <header id="header" class="header-scrolled fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="container mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-            <!-- Logo -->
-            <div class="flex items-center space-x-2">
-                <a href="#">
-                    <img src="images/Logo.jpg" alt="JV Traders Logo" class="h-10 w-auto">
-                </a>
-                <span class="text-2xl font-bold text-white bg-blue-600 px-3 py-1 rounded-lg">JV Traders</span>
-
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <a href="#">
+                        <img src="images/Logo.jpg" alt="JV Traders Logo" class="h-10 w-auto">
+                    </a>
+                    <span class="text-2xl font-bold text-white bg-blue-900 px-3 py-1 rounded-lg">JV TRADERS</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-sand font-semibold transition">Home</a>
+                    <a href="#products" class="text-gray-700 hover:text-sand font-semibold transition">Products</a>
+                    <a href="#vehicles" class="text-gray-700 hover:text-sand font-semibold transition">Vehicles</a>
+                    <a href="#about" class="text-gray-700 hover:text-sand font-semibold transition">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-sand font-semibold transition">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-sand" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-black-600 hover:text-yellow-600 transition">Home</a>
-                <a href="#products" class="text-black-600 hover:text-yellow-600 transition">Our Products</a>
-                <a href="#about" class="text-black-600 hover:text-yellow-600 transition">About Us</a>
-                <a href="#contact" class="text-black-600 hover:text-yellow-600 transition">Contact</a>
-            </nav>
-
-            <!-- Call to Action Button -->
-            <a href="#contact" class="hidden md:inline-block bg-yellow-500 text-white font-semibold px-5 py-2 rounded-lg hover:bg-yellow-600 transition shadow">
-                Request a Quote
-            </a>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-        <a href="#home" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Home</a>
-        <a href="#products" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Our Products</a>
-        <a href="#about" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">About Us</a>
-        <a href="#contact" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Contact</a>
-        <div class="p-4">
-            <a href="#contact"
-            class="w-full text-center bg-yellow-500 text-white font-semibold px-5 py-3 rounded-lg hover:bg-yellow-600 transition shadow block">
-                Request a Quote
-            </a>
-        </div>
-    </div>
-</header>
-
-
-    <main>
-        <!-- Section 1: Home - Welcome Mat -->
-        <section id="home" class="relative min-h-screen flex items-center justify-center pt-20">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <img src="images/HomePhoto.jpg" 
-                alt="Large pile of high-quality construction sand" 
-                class="absolute inset-0 w-full h-full object-cover filt">
-            <div class="relative z-10 text-center text-white px-4">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
-                    Quality Sand, Delivered On Time.
-                </h1>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200">
-                    Your trusted supplier for construction, landscaping, and specialty sand in the greater metro area.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#contact" class="bg-yellow-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-yellow-600 transition shadow-lg text-lg">
-                        Request a Free Quote
-                    </a>
-                    <a href="#products" class="bg-white text-gray-800 font-semibold px-8 py-4 rounded-lg hover:bg-gray-200 transition shadow-lg text-lg">
-                        See Our Products
-                    </a>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200 absolute top-full left-0 right-0 shadow-lg">
+                <div class="px-6 py-4 space-y-4">
+                    <a href="#home" class="block text-gray-700 hover:text-sand font-semibold transition">Home</a>
+                    <a href="#products" class="block text-gray-700 hover:text-sand font-semibold transition">Products</a>
+                    <a href="#vehicles" class="block text-gray-700 hover:text-sand font-semibold transition">Vehicles</a>
+                    <a href="#about" class="block text-gray-700 hover:text-sand font-semibold transition">About</a>
+                    <a href="#contact" class="block text-gray-700 hover:text-sand font-semibold transition">Contact</a>
                 </div>
             </div>
-        </section>
-
-        <!-- Section 2: Our Products -->
-<section id="products" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Sand Products</h2>
-            <p class="text-lg text-gray-600 mt-2">The right material for every project.</p>
         </div>
+    </header>
+
+    <!-- Section 1: Home - Welcome Mat -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <img src="images/HomePhoto.jpg" 
+            alt="Large pile of high-quality construction sand" 
+            class="absolute inset-0 w-full h-full object-cover filt">
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
+                Quality Sand, Delivered On Time.
+            </h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200">
+                Your trusted supplier for construction, landscaping, and specialty sand in the greater metro area.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-yellow-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-yellow-600 transition shadow-lg text-lg">
+                    Request a Free Quote
+                </a>
+                <a href="#products" class="bg-white text-gray-800 font-semibold px-8 py-4 rounded-lg hover:bg-gray-200 transition shadow-lg text-lg">
+                    See Our Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Our Premium Sand Products</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- River Sand Grade A -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/River Sand Garde A 1.jpg" alt="River Sand Grade A" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/River Sand Garde A 2.jpg" alt="River Sand Grade A" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/River Sand Garde A 3.jpg" alt="River Sand Grade A" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Video Grade A.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/River Video 2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">River Sand – Grade A</h3>
+                        <p class="text-gray-600 mb-4">Premium quality river sand for construction and concrete work. Fine texture with excellent binding properties.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹2,500/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in River Sand Grade A')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- River Sand Grade B -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/River Sand Grade B 1.jpg" alt="River Sand Grade B" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/River Sand Grade B 2.jpg" alt="River Sand Grade B" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Video Grade B.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">River Sand – Grade B</h3>
+                        <p class="text-gray-600 mb-4">Standard quality river sand for general construction purposes. Good for plastering and masonry work.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹1,500/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in River Sand Grade B')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- River Sand Grade C -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Normal Sand Grade C  1.jpg" alt="River Sand Grade C" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Normal Grade C 2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Normal Grade C 3.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">River Sand – Grade C</h3>
+                        <p class="text-gray-600 mb-4">Economical river sand for basic construction needs. Suitable for filling and leveling work.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹1,900/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in River Sand Grade C')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+            <!-- Grade D-->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Grade D 1.jpg" alt="River Sand Grade B" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Grade D 2.jpg" alt="River Sand Grade B" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Grade D</h3>
+                        <p class="text-gray-600 mb-4">General construction purposes. Good for plasteringwork.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">32ton - 42,000rs</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in River Sand Grade B')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plastering Sand -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Plastering sand 1.jpg" alt="River Sand Grade C" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Plastering sand 2.jpg" alt="River Sand Grade C" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Plastering Sand</h3>
+                        <p class="text-gray-600 mb-4">Economical river sand for basic construction needs. Suitable for filling and leveling work.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹1,500/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in River Sand Grade C')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sea Sand -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Sea Sand 1.jpg" alt="Sea Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Sea Sand 2.jpg" alt="Sea Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Sea Sand 3.jpg" alt="Sea Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Sea Sand 4.jpg" alt="Sea Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Sea Sand Video 5.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Sea Sand</h3>
+                        <p class="text-gray-600 mb-4">High-quality sea sand for specialized applications. Perfect for landscaping and decorative purposes.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹3,300/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in Sea Sand')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Play Area Sand -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Play Area 1.jpg" alt="Play Area Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Play Area 2.jpg" alt="Play Area Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Play Area 3.jpg" alt="Play Area Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Play Area 4.jpg" alt="Play Area Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Play area 5.jpg" alt="Play Area Sand" class="w-full h-full object-cover">
+                            </div>
+                             <div class="carousel-item absolute inset-0">
+                                <img src="images/Play Area 6.jpg" alt="Play Area Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Play Area video1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Play Area video 2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Play Area Sand</h3>
+                        <p class="text-gray-600 mb-4">Safe and clean sand specially processed for children's play areas and playgrounds.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹3,200/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in Play Area Sand')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cricket/Hockey Ground Sand -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Ground sand 1.jpg" alt="Cricket/Hockey Ground Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Ground Sand 2.jpg" alt="Cricket/Hockey Ground Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Ground Sand 3.jpg" alt="Cricket/Hockey Ground Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Ground Sand  video 1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Cricket/Hockey Ground Sand</h3>
+                        <p class="text-gray-600 mb-4">Specialized sand for sports grounds with optimal drainage and playing characteristics.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹3,300/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in Cricket/Hockey Ground Sand')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coarse Sand -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Coarse Sand 1.jpg" alt="Coarse Sand" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <img src="images/Course Sand 1.jpg" alt="Coarse Sand" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Coarse Sand</h3>
+                        <p class="text-gray-600 mb-4">Coarse-grained sand ideal for drainage systems, landscaping, and specialized construction needs.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹2,100/ton</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in Coarse Sand')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sewing Available -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="carousel-container h-full">
+                            <div class="carousel-item active absolute inset-0">
+                                <img src="images/Sewing 1.jpg" alt="Sewing Service" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Sewing video1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-item absolute inset-0">
+                                <video class="w-full h-full object-cover" controls>
+                                    <source src="images/Sewing video 2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">‹</button>
+                        <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">›</button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Sewing Available</h3>
+                        <p class="text-gray-600 mb-4">Professional sand bagging and sewing services for convenient storage and transportation.</p>
+                        <p class="text-2xl font-bold text-sand mb-4">Starting from ₹50/bag</p>
+                        <div class="space-y-2">
+                            <button onclick="sendWhatsAppToBoth('Hi, I\'m interested in Sewing Services')" class="block w-full bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+                            <a href="tel:9845208446" class="block w-full bg-blue-500 text-white text-center py-2 rounded-lg hover:bg-blue-600 transition">📞 Call Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+   
+
+
+
+    <!-- Vehicles Section -->
+<section id="vehicles" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800 animate__animated animate__fadeInDown">Our Vehicle Fleet</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- River Sand - 1st Quality -->
-            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="images/RiverSand 1.jpg" alt="River Sand 1st Quality" class="w-full h-56 object-cover rounded inline-block">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">River Sand (1st Quality)</h3>
-                    <p class="text-gray-600 mb-2">High-strength, washed and screened sand. Perfect for premium concrete and structural work.</p>
-                    <p class="text-sm font-semibold text-green-700 mb-2">Starting From ₹2000</p>
-                    <ul class="text-gray-700 space-y-1">
-                        <li class="flex items-center">✅ Concrete Mixing</li>
-                        <li class="flex items-center">✅ Paving Stones</li>
-                        <li class="flex items-center">✅ Foundations</li>
-                    </ul>
+
+            <!-- Tractor 5 - 7 Tons -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚜</div>
+                    <h3 class="text-xl font-bold text-gray-800">Tractor 5 – 7 Tons</h3>
                 </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/Tactor 1 5 - 6 ton vehicle.jpg" alt="Tractor 5-7 Tons" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Reliable for small load transport and agricultural or construction use.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a Tractor 5–7 Ton for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
             </div>
 
-            <!-- River Sand - 2nd Quality -->
-            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="images/RiverSand 2nd Quality.jpg" alt="River Sand 2nd Quality" class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">River Sand (2nd Quality)</h3>
-                    <p class="text-gray-600 mb-2">Cost-effective sand for general use and construction fill work.</p>
-                    <p class="text-sm font-semibold text-green-700 mb-2">Starting From ₹1500</p>
-                    <ul class="text-gray-700 space-y-1">
-                        <li class="flex items-center">✅ Filling & Leveling</li>
-                        <li class="flex items-center">✅ Masonry Work</li>
-                        <li class="flex items-center">✅ Landscaping Base</li>
-                    </ul>
+            <!-- 7 - 10 Ton Vehicle -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚛</div>
+                    <h3 class="text-xl font-bold text-gray-800">7 – 10 Ton Vehicle</h3>
                 </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/7 - 10 ton Vehicle.jpg" alt="7-10 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Efficient for city deliveries and light construction transport.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a 7–10 Ton Vehicle for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
             </div>
 
-            <!-- Red Soil -->
-            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="images/RedSoil 1.jpg" alt="Red Soil" class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Red Soil</h3>
-                    <p class="text-gray-600 mb-2">Nutrient-rich red soil, great for gardening, landscaping, and agricultural needs.</p>
-                    <p class="text-sm font-semibold text-green-700 mb-2">Starting From ₹800</p>
-                    <ul class="text-gray-700 space-y-1">
-                        <li class="flex items-center">✅ Garden Beds</li>
-                        <li class="flex items-center">✅ Lawn Base</li>
-                        <li class="flex items-center">✅ Landscaping</li>
-                    </ul>
+            <!-- 15 - 22 Ton Vehicle -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚛</div>
+                    <h3 class="text-xl font-bold text-gray-800">15 – 22 Ton Vehicle</h3>
                 </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/15 - 22 ton vehicle.jpg" alt="15-22 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Mid-size hauler for medium construction and logistics needs.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a 15–22 Ton Vehicle for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
             </div>
 
-            <!-- Play Area Sand -->
-            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="images/PlayArea 1.jpg" alt="Play Area Sand" class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Play Area Sand</h3>
-                    <p class="text-gray-600 mb-2">Safe, soft, fine-grained sand for children’s play zones and parks.</p>
-                    <p class="text-sm font-semibold text-green-700 mb-2">Starting From ₹1800</p>
-                    <ul class="text-gray-700 space-y-1">
-                        <li class="flex items-center">✅ Sandboxes</li>
-                        <li class="flex items-center">✅ Parks & Schools</li>
-                        <li class="flex items-center">✅ Playgrounds</li>
-                    </ul>
+            <!-- 20 Ton Vehicle -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚛</div>
+                    <h3 class="text-xl font-bold text-gray-800">20 Ton Vehicle</h3>
                 </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/20 Ton vehicle.jpg" alt="20 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Heavy-duty transport for large construction and bulk goods.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a 20 Ton Vehicle for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
             </div>
 
-            <!-- Sea Sand -->
-            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="images/SeaSand 1.jpg" alt="Sea Sand" class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Sea Sand</h3>
-                    <p class="text-gray-600 mb-2">Ideal for decorative landscaping, beachside aesthetics, and artistic projects.</p>
-                    <p class="text-sm font-semibold text-green-700 mb-2">Starting From ₹2500</p>
-                    <ul class="text-gray-700 space-y-1">
-                        <li class="flex items-center">✅ Landscaping</li>
-                        <li class="flex items-center">✅ Decorative Areas</li>
-                        <li class="flex items-center">✅ Coastal Themes</li>
-                    </ul>
+            <!-- 32 - 38 Ton Vehicle -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚚</div>
+                    <h3 class="text-xl font-bold text-gray-800">32 – 38 Ton Vehicle</h3>
                 </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/32 - 38 Ton Vehicle.jpg" alt="32-38 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Ideal for infrastructure projects and material delivery.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a 32–38 Ton Vehicle for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
             </div>
 
-            <!-- Pool Sand -->
-            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="images/PoolSand 1.jpg" alt="Pool Filter Sand" class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Pool Sand</h3>
-                    <p class="text-gray-600 mb-2">Clean and uniform sand for pool filtration systems and underwater applications.</p>
-                    <p class="text-sm font-semibold text-green-700 mb-2">₹15 per kg (Bagged)</p>
-                    <p class="text-xs text-gray-500">Bulk supplier available</p>
-                    <ul class="text-gray-700 space-y-1">
-                        <li class="flex items-center">✅ Pool Filters</li>
-                        <li class="flex items-center">✅ Aquatic Zones</li>
-                        <li class="flex items-center">✅ Bag Supply Available</li>
-                    </ul>
+            <!-- 36 - 40 Ton Vehicle -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚚</div>
+                    <h3 class="text-xl font-bold text-gray-800">36 – 40 Ton Vehicle</h3>
                 </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/36 - 40 ton vehicle.jpg" alt="36-40 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Great for high-load capacity requirements and project logistics.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a 36–40 Ton Vehicle for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
             </div>
 
-            <!-- Pebbles -->
-            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="images/PebblesColor 1.jpg" alt="Garden Pebbles" class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Pebbles & Stones</h3>
-                    <p class="text-gray-600 mb-2">Wide range of natural and decorative pebbles for gardens, aquariums, and interiors.</p>
-                    <p class="text-sm font-semibold text-green-700 mb-2">Starting From ₹9</p>
-                    <ul class="text-gray-700 space-y-1">
-                        <li class="flex items-center">✅ Natural Pebbles</li>
-                        <li class="flex items-center">✅ Colorful Decorative Pebbles</li>
-                        <li class="flex items-center">✅ Large & Unpolished Pebbles</li>
-                    </ul>
+            <!-- 45 - 50 Ton Vehicle -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚚</div>
+                    <h3 class="text-xl font-bold text-gray-800">45 – 50 Ton Vehicle</h3>
                 </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/45 - 50 Ton vehicle.jpg" alt="45-50 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/45 ton Vehicle.jpg" alt="45-50 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Used for mega construction and heavy freight hauling.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a 45–50 Ton Vehicle for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
+            </div>
+
+            <!-- 50 - 55 Ton Vehicle -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+                <div class="text-center mb-4">
+                    <div class="text-4xl mb-2">🚚</div>
+                    <h3 class="text-xl font-bold text-gray-800">50 – 55 Ton Vehicle</h3>
+                </div>
+                <div class="w-full h-48 overflow-hidden rounded-lg mb-4">
+                    <img src="images/50 - 55 Ton vehicle.jpg" alt="50-55 Ton Vehicle" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <p class="text-gray-600 mb-4 text-center">Max-capacity trailers for industrial and mining logistics.</p>
+                <button onclick="sendWhatsAppToBoth('Hi, I need a 50–55 Ton Vehicle for delivery')" class="block w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">💬 WhatsApp Us</button>
             </div>
         </div>
     </div>
 </section>
 
-        <!-- Section 3: About Us -->
-        <section id="about" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2">
-                        <img src="images/Team.jpg" 
-                             alt="Company trucks and team members"
-                             class="rounded-lg shadow-xl w-full">
-                    </div>
-                    <div class="md:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your Reliable Local Sand Supplier</h2>
-                        <p class="text-gray-600 text-lg mb-4">
-                            Serving the community for over 20 years, JV Traders has built a reputation for quality materials and dependable delivery. We pride ourselves on being a partner to contractors, landscapers, and homeowners alike.
-                        </p>
-                        <p class="text-gray-600 text-lg">
-                            Our commitment is simple: provide the best possible sand for your project, delivered safely and on schedule. We proudly serve Cityville, Townburg, and all surrounding areas.
-                        </p>
-                    </div>
+    <!-- Section 3: About Us -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="images/Team.jpg"
+                         alt="Company trucks and team members"
+                         class="rounded-lg shadow-xl w-full h-72 md:h-96 object-cover object-center">
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Contact & Quote Request -->
-        <section id="contact" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get a Free Quote Today</h2>
-                    <p class="text-lg text-gray-600 mt-2">Fill out the form below or give us a call.</p>
-                </div>
-
-                <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <!-- Contact Form -->
-                        <form id="quoteForm">
-                            <div class="space-y-4">
-                                <input type="text" placeholder="Your Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                                <input type="tel" placeholder="Phone Number" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                                <input type="email" placeholder="Your@gmail.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                                <select required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none text-gray-500">
-                                    <option value="" disabled selected>Select Sand Type</option>
-                                    <option value="concrete">River Sand</option>
-                                    <option value="masonry">Play Sand</option>
-                                    <option value="play">Red Soil</option>
-                                    <option value="play">Sea Sand</option>
-                                    <option value="play">Pool Sand</option>
-                                    <option value="play">Pebbles</option>
-                                    <option value="play">Others</option>
-                                </select>
-                                <input type="text" placeholder="Estimated Quantity (e.g., tons, yards)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                                <textarea placeholder="Delivery Address & Project Notes" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"></textarea>
-                                <button type="submit" class="w-full bg-yellow-500 text-white font-semibold p-4 rounded-lg hover:bg-yellow-600 transition shadow-md">
-                                    Submit Quote Request
-                                </button>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your Reliable Local Sand Supplier</h2>
+                    <p class="text-gray-600 text-lg mb-4">
+                        Serving the community for over 20 years, JV Traders has built a reputation for quality materials and dependable delivery. We pride ourselves on being a partner to contractors, landscapers, and homeowners alike.
+                    </p>
+                    <p class="text-gray-600 text-lg">
+                        Our commitment is simple: provide the best possible sand for your project, delivered safely and on schedule. We proudly serve Bangalore and all surrounding areas.
+                    </p>
+                    
+                    <!-- Team Information -->
+                    <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-center mb-6">
+                            <div class="w-24 h-24 bg-sand rounded-full flex items-center justify-center text-4xl font-bold text-white mr-6">
+                                M
                             </div>
-                        </form>
-
-<!-- Direct Contact Info -->
-<div class="space-y-6">
-    <!-- Contact Information -->
-    <div>
-    <h3 class="text-xl font-semibold text-gray-900 mb-2">Contact Information</h3>
-    <p class="text-gray-600 text-lg">
-    <strong>Phone:</strong>
-    <a href="tel:+919844071339" class="text-yellow-600 hover:underline">9845208446</a>,
-    <a href="tel:+919845208446" class="text-yellow-600 hover:underline">9164650985</a>,
-    <a href="tel:+919844071339" class="text-yellow-600 hover:underline">9844071339</a>
-    </p>
-    <p class="text-gray-600 text-lg">
-    <strong>Email:</strong>
-    <a href="mailto:quotes@jvtraders.com" class="text-yellow-600 hover:underline">quotes@jvtraders.com</a>
-    </p>
-</div>
-
-    <!-- Business Hours -->
-    <div class="flex items-start gap-2">
-    <svg class="w-6 h-6 text-yellow-500 mt-1" fill="none" stroke="currentColor" stroke-width="2"
-    viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-    <div>
-    <h3 class="text-xl font-semibold text-gray-900 mb-1">Business Hours</h3>
-    <p class="text-gray-600 text-lg"><strong>Mon – Sun:</strong> Open 24 Hours</p>
-    </div>
-</div>
-
-    <!-- Service Area -->
-    <div>
-    <h3 class="text-xl font-semibold text-gray-900 mb-2">Service Area</h3>
-    <p class="text-gray-600 text-lg">Proudly delivering all over Bangalore.</p>
-</div>
-
-
-    <!-- Location & GSTIN -->
-    <div>
-    <h3 class="text-xl font-semibold text-gray-800 mb-2">Location</h3>
-    <p class="text-gray-600 text-lg">
-    JV Traders - River Sand Supplier<br>
-    31, Ground Floor, NG Gollahalli,<br>
-    Hennur Main Rd, Dodda Gubbi,<br>
-    Bengaluru, Karnataka – 560077, India
-    </p>
-    <p class="text-gray-600 text-sm mt-1"><strong>GSTIN: 29CFHPM8783C1ZY</strong></p>
-  </div>
-
-        <!-- Embedded Google Map -->
-        <div class="w-full h-64 rounded-lg overflow-hidden shadow-md">
-            <iframe
-                src="https://www.google.com/maps?q=JV+TRADERS+River+Sand+Supplier,+31,+Ground+Floor,+NG+Gollahalli,+Hennur+Main+Rd,+Dodda+Gubbi,+Bengaluru,+Karnataka+560077&output=embed"
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-
-        <!-- External Google Maps Button -->
-            <div class="mt-4 text-center">
-                <a href="https://maps.app.goo.gl/2b9teb27gZovpE1AA?g_st=aw" target="_blank" rel="noopener noreferrer"
-                class="inline-block px-6 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow hover:bg-yellow-600 transition">
-            📍 Open in Google Maps
-                </a>
-            </div>
-</div>
-        </div>
+                            <div class="text-left">
+                                <h3 class="text-2xl font-bold text-gray-800">Manjunath</h3>
+                                <p class="text-gray-600">Founder & CEO</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            With years of experience in the construction materials industry, Manjunath has built JV Traders into one of Bangalore's most reliable sand suppliers. Our commitment to quality, transparency, and customer satisfaction has made us the preferred choice for contractors, builders, and individuals across the city.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section> 
 
-    </main>
+    <!-- Section 4: Contact & Quote Request -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get a Free Quote Today</h2>
+                <p class="text-lg text-gray-600 mt-2">Fill out the form below or give us a call.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <form id="quoteForm">
+                        <div class="space-y-4">
+                            <input type="text" placeholder="Your Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <input type="tel" placeholder="Phone Number" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <input type="email" placeholder="Your@gmail.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <select required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none text-gray-500" aria-label="Select sand type">
+                                <option value="" disabled selected>Select Sand Type</option>
+                                <option value="concrete">River Sand</option>
+                                <option value="masonry">Play Sand</option>
+                                <option value="play">Red Soil</option>
+                                <option value="play">Sea Sand</option>
+                                <option value="play">Pool Sand</option>
+                                <option value="play">Pebbles</option>
+                                <option value="play">Others</option>
+                            </select>
+                            <input type="text" placeholder="Estimated Quantity (e.g., tons, yards)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <textarea placeholder="Delivery Address & Project Notes" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"></textarea>
+                            <button type="submit" class="w-full bg-yellow-500 text-white font-semibold p-4 rounded-lg hover:bg-yellow-600 transition shadow-md">
+                                Submit Quote Request
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Direct Contact Info -->
+                    <div class="space-y-6">
+                        <!-- Contact Information -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Contact Information</h3>
+                            <p class="text-gray-600 text-lg">
+                                <strong>Phone:</strong>
+                                <a href="tel:+919845208446" class="text-yellow-600 hover:underline">9845208446</a>,
+                                <a href="tel:+919164650985" class="text-yellow-600 hover:underline">9164650985</a>,
+                                <a href="tel:+919844071339" class="text-yellow-600 hover:underline">9844071339</a>
+                            </p>
+                            <p class="text-gray-600 text-lg">
+                                <strong>Email:</strong>
+                                <a href="mailto:jvtraders98@gmail.com" class="text-yellow-600 hover:underline">jvtraders98@gmail.com</a>
+                            </p>
+                        </div>
+
+                        <!-- Business Hours -->
+                        <div class="flex items-start gap-2">
+                            <svg class="w-6 h-6 text-yellow-500 mt-1" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-1">Business Hours</h3>
+                                <p class="text-gray-600 text-lg"><strong>Mon – Sun:</strong> Open 24 Hours</p>
+                            </div>
+                        </div>
+
+                        <!-- Service Area & GSTIN -->
+                        <div class="space-y-4">
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <p class="text-purple-700 font-semibold">📍 Service Area</p>
+                                <p class="text-purple-600">All over Bangalore</p>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <p class="text-gray-700 font-semibold">🏢 GSTIN</p>
+                                <p class="text-gray-600">29CFHPM8783C1ZY</p>
+                            </div>
+                        </div>
+
+                        <!-- Full Address -->
+                        <div class="bg-gradient-to-r from-sand to-yellow-500 rounded-lg p-4 text-white">
+                            <h4 class="text-lg font-bold mb-2">JV Traders – River Sand Supplier</h4>
+                            <p class="text-sm">31, Ground Floor, NG Gollahalli,</p>
+                            <p class="text-sm">Hennur Main Rd, Dodda Gubbi,</p>
+                            <p class="text-sm">Bengaluru, Karnataka – 560077, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- Google Maps Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Find Us on Google Maps</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <iframe
+                        src="https://www.google.com/maps?q=JV+TRADERS+River+Sand+Supplier,+31,+Ground+Floor,+NG+Gollahalli,+Hennur+Main+Rd,+Dodda+Gubbi,+Bengaluru,+Karnataka+560077&output=embed"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <div class="text-center mt-6">
+                    <a href="https://maps.app.goo.gl/2b9teb27gZovpE1AA?g_st=aw" target="_blank" rel="noopener noreferrer"
+                        class="inline-block px-6 py-3 bg-yellow-500 text-white font-semibold rounded-lg shadow hover:bg-yellow-600 transition">
+                        📍 Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-<footer class="bg-gray-800 text-white">
-    <div class="container mx-auto px-6 py-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <!-- Left Section: Logo + Name -->
-            <div class="flex items-center space-x-3 text-center md:text-left mb-4 md:mb-0">
-                <img src="images/Logo.jpg" alt="JV Traders Logo" class="h-10 w-auto">
-                <div>
-                    <p class="text-xl font-bold">JV Traders</p>
-                    <p class="text-gray-400">© 2025 JV Traders. All Rights Reserved.</p>
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- Left Section: Logo + Name -->
+                <div class="flex items-center space-x-3 text-center md:text-left mb-4 md:mb-0">
+                    <img src="images/Logo.jpg" alt="JV Traders Logo" class="h-10 w-auto">
+                    <div>
+                        <p class="text-xl font-bold">JV Traders</p>
+                        <p class="text-gray-400">© 2025 JV Traders. All Rights Reserved.</p>
+                    </div>
+                </div>
+                
+                <!-- Right Section: Contact Info -->
+                <div class="text-center md:text-right">
+                    <p class="text-gray-300">
+                        Call Us: 
+                        <a href="tel:9845208446,9844071339" class="hover:text-yellow-400">
+                            9164650985, 9845208446, 9844071339
+                        </a>
+                    </p>
+                    <p class="text-gray-300">
+                        Email: 
+                        <a href="mailto:jvtraders98@gmail.com" class="hover:text-yellow-400">
+                            jvtraders98@gmail.com
+                        </a>
+                    </p>
                 </div>
             </div>
-
-            <!-- Right Section: Contact Info -->
-            <div class="text-center md:text-right">
-                <p class="text-gray-300">
-                    Call Us: 
-                    <a href="tel:9845208446,9844071339" class="hover:text-yellow-400">
-                        9164650985, 9845208446, 9844071339
-                    </a>
-                </p>
-                <p class="text-gray-300">
-                    Email: 
-                    <a href="mailto:quotes@JV.com" class="hover:text-yellow-400">
-                        quotes@JVTraders.com
-                    </a>
-                </p>
-            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-
-    <!-- JavaScript for Mobile Menu and Header Scroll Effect -->
+    <!-- JavaScript for Carousel Functionality -->
     <script>
+        function sendWhatsAppToBoth(message) {
+            // WhatsApp numbers
+            const num1 = '919845208446';
+            const num2 = '919844071339';
+            const encodedMsg = encodeURIComponent(message);
+            // Open first WhatsApp chat in a new tab
+            window.open(`https://wa.me/${num1}?text=${encodedMsg}`, '_blank');
+            // Prompt user to open the second chat
+            setTimeout(() => {
+                if (confirm('Would you like to send the same message to our second WhatsApp number as well?')) {
+                    window.open(`https://wa.me/${num2}?text=${encodedMsg}`, '_blank');
+                }
+            }, 500);
+        }
+
+        // JavaScript for Mobile Menu and Header Scroll Effect
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const header = document.getElementById('header');
 
             // Toggle mobile menu
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
 
-            // Close mobile menu when a link is clicked
-            mobileMenu.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
+                // Close mobile menu when a link is clicked
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
 
             // Add background to header on scroll
-            window.addEventListener('scroll', function() {
-                if (true) {
-                    header.classList.add('header-scrolled');
-                }
-            });
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.classList.add('header-scrolled');
+                        //header.classList.remove('bg-transparent');
+                    } else {
+                        //header.classList.remove('bg-white', 'shadow-lg');
+                        //header.classList.add('bg-transparent');
+                    }
+                });
+            }
 
             // Handle form submission
             const quoteForm = document.getElementById('quoteForm');
-            quoteForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // In a real application, you would send this data to a server.
-                // For this demo, we'll just show an alert.
-                // NOTE: Using a custom modal/message box is better than alert() in a real app.
-                alert('Thank you for your request! We will get back to you shortly.');
-                quoteForm.reset();
+            if (quoteForm) {
+                quoteForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // In a real application, you would send this data to a server.
+                    // For this demo, we'll just show an alert.
+                    // NOTE: Using a custom modal/message box is better than alert() in a real app.
+                    alert('Thank you for your request! We will get back to you shortly.');
+                    quoteForm.reset();
+                });
+            }
+
+            // Carousel functionality with video pause management
+            const carousels = document.querySelectorAll('.carousel-container');
+            
+            carousels.forEach(carousel => {
+                const items = carousel.querySelectorAll('.carousel-item');
+                const prevBtn = carousel.parentElement.querySelector('.carousel-prev');
+                const nextBtn = carousel.parentElement.querySelector('.carousel-next');
+                let currentIndex = 0;
+                let autoAdvanceInterval;
+                
+                function pauseAllVideos() {
+                    items.forEach(item => {
+                        const video = item.querySelector('video');
+                        if (video && !video.paused) {
+                            video.pause();
+                        }
+                    });
+                }
+                
+                function showItem(index) {
+                    // Pause all videos first
+                    pauseAllVideos();
+                    
+                    items.forEach((item, i) => {
+                        if (i === index) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                }
+                
+                function nextItem() {
+                    currentIndex = (currentIndex + 1) % items.length;
+                    showItem(currentIndex);
+                }
+                
+                function prevItem() {
+                    currentIndex = (currentIndex - 1 + items.length) % items.length;
+                    showItem(currentIndex);
+                }
+                
+                function startAutoAdvance() {
+                    autoAdvanceInterval = setInterval(nextItem, 5000);
+                }
+                
+                function stopAutoAdvance() {
+                    if (autoAdvanceInterval) {
+                        clearInterval(autoAdvanceInterval);
+                    }
+                }
+                
+                // Manual navigation
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        stopAutoAdvance();
+                        prevItem();
+                        startAutoAdvance();
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        stopAutoAdvance();
+                        nextItem();
+                        startAutoAdvance();
+                    });
+                }
+                
+                // Start auto-advance
+                startAutoAdvance();
+                
+                // Pause videos when carousel loses focus or visibility
+                carousel.addEventListener('mouseenter', stopAutoAdvance);
+                carousel.addEventListener('mouseleave', startAutoAdvance);
+                
+                // Pause videos when tab becomes inactive
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        pauseAllVideos();
+                        stopAutoAdvance();
+                    } else {
+                        startAutoAdvance();
+                    }
+                });
+            });
+
+            // Intersection Observer to pause videos when not visible
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        // Pause videos when carousel is not visible
+                        const carousel = entry.target;
+                        const videos = carousel.querySelectorAll('video');
+                        videos.forEach(video => {
+                            if (!video.paused) {
+                                video.pause();
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all carousels
+            carousels.forEach(carousel => {
+                observer.observe(carousel);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Pause all videos when page loses focus
+            window.addEventListener('blur', () => {
+                const allVideos = document.querySelectorAll('video');
+                allVideos.forEach(video => {
+                    if (!video.paused) {
+                        video.pause();
+                    }
+                });
             });
         });
     </script>
 </body>
-</html>
+</html> 
