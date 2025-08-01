@@ -656,10 +656,10 @@
                     <!-- Contact Form -->
                     <form id="quoteForm">
                         <div class="space-y-4">
-                            <input type="text" placeholder="Your Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                            <input type="tel" placeholder="Phone Number" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                            <input type="email" placeholder="Your@gmail.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                            <select required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none text-gray-500" aria-label="Select sand type">
+                            <input type="text" name="Customer_Name" placeholder="Your Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <input type="tel" name="Customer_Phone" placeholder="Phone Number" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <input type="email" name="Customer_Email" placeholder="Your@gmail.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <select name="Sand_Type" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none text-gray-500" aria-label="Select sand type">
                                 <option value="" disabled selected>Select Sand Type</option>
                                 <option value="concrete">River Sand</option>
                                 <option value="masonry">Play Sand</option>
@@ -669,8 +669,8 @@
                                 <!-- <option value="play">Pebbles</option> -->
                                 <option value="play">Others</option>
                             </select>
-                            <input type="text" placeholder="Estimated Quantity (e.g., tons, yards)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-                            <textarea placeholder="Delivery Address & Project Notes" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"></textarea>
+                            <input type="text" name="Estimated_Quantity" placeholder="Estimated Quantity (e.g., tons, yards)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                            <textarea name="Delivery_Address" placeholder="Delivery Address & Project Notes" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"></textarea>
                             <button type="submit" class="w-full bg-yellow-500 text-white font-semibold p-4 rounded-lg hover:bg-yellow-600 transition shadow-md">
                                 Submit Quote Request
                             </button>
@@ -803,6 +803,39 @@
                     window.open(`https://wa.me/${num2}?text=${encodedMsg}`, '_blank');
                 }
             }, 500);
+        }
+
+        // Handle form submission
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+    quoteForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // The URL of your Google Apps Script web app
+        const url = "https://script.google.com/macros/s/AKfycbzRwj8OEF1a8uuAKlT9qlcIss8Ozv9c-pt_3sAJsjFwfrDY4fnPU25Lg6fUUHnMifMcEg/exec";
+        const formData = new FormData(quoteForm);
+
+        fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    // This is where you can show a success message to the user
+                    alert('Thank you for your request! We will get back to you shortly.');
+                    quoteForm.reset();
+                } else {
+                    // This is where you can handle errors
+                    console.error('Error:', data.error);
+                    alert('There was an error submitting your request. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error);
+                alert('There was an error submitting your request. Please try again.');
+            });
+    });
         }
 
         // JavaScript for Mobile Menu and Header Scroll Effect
